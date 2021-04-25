@@ -1,0 +1,5 @@
+1,Martina,2
+2,Kaiser,10
+3,Heisenberg,2
+4,Lola,0
+5,Nymeria,4
