@@ -3,9 +3,7 @@ package model;
 import java.util.Comparator;
 
 public class RaceComparator implements Comparator<Doggo> {
-
-	//the method compare let compare the two elements of the list using the race to order
-	public int compare(Doggo o1, Doggo o2) {
-		return o1.getRace().compareTo(o2.getRace()) ;
+	public int compare(Doggo d1, Doggo d2) {
+		return d1.getBreed().compareTo(d2.getBreed());
 	}
 }

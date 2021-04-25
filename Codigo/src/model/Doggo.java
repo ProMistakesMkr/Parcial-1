@@ -1,86 +1,46 @@
 package model;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 import processing.core.PApplet;
-// Dog class with the interface Comparable implemented
-public class Doggo implements Comparable<Doggo>{
-	// variable's declaration
-	private String name, race;
-	private Date date;
-	private int age, ID;
+
+public class Doggo implements Comparable<Doggo> {
 	private PApplet app;
-
-	//Dog class constructor
-	public Doggo (int ID, int age, String name, String race, Date date, PApplet app) {
-		this.ID=ID;
+	String name,breed;
+	int age,id;
+	public Doggo(int id, String name, int age, String breed,PApplet app) {
+		this.id=id;
+		this.name=name;
 		this.age=age;
-		this.name = name;
-		this.race = race;
-		this.date = date;
-		this.app = app;
+		this.breed=breed;
+		this.app=app;
 	}
-
-	//write text method
-	public void writeDog(int x) {
-		//text's size setup
-		app.textSize(14);
-		// the text write the variables in the respective position
-		app.text("ID: "+ID, x, 100);
-		app.text("N: "+ name, x, 120);
-		app.text("R: "+race, x, 142);
-		app.text("Edad: "+ age, x, 162);
-		// the SimpleDateFormat is used to apply the format of date to the date variable to write it in the main
-		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-		String date = format.format(this.date);
-		app.text("B: "+date, x, 182);
+	public void drawAttributes(int x, int y) {
+		app.fill(0);
+		app.text(this.id, x, y);
+		y+=30;
+		app.text(this.name, x, y);
+		y+=30;
+		app.text(this.age + " años", x, y);
+		y+=30;
+		app.text(this.breed, x, y);
+		y+=30;
 	}
-	// compareTo using ID to order
-	public int compareTo(Doggo nextDog) {
-		return this.ID - nextDog.getID();
-	}
-	// getters and setters
 	public String getName() {
 		return name;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	public String getBreed() {
+		return breed;
 	}
-
-	public String getRace() {
-		return race;
-	}
-
-	public void setRace(String race) {
-		this.race = race;
-	}
-
 	public int getAge() {
 		return age;
 	}
-
-	public void setAge(int age) {
-		this.age = age;
+	public int getId() {
+		return id;
 	}
-
-	public int getID() {
-		return ID;
+	@Override
+	public int compareTo(Doggo nextDog) {
+		// TODO Auto-generated method stub
+		return this.id - nextDog.getId();
 	}
-
-	public void setID(int iD) {
-		ID = iD;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-
-
 }
